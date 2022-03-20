@@ -11,7 +11,7 @@ import java.util.Objects;
 @SessionScope
 public class Cart {
 
-    private List<Integer> items = new ArrayList<>();
+    private final List<Integer> items = new ArrayList<>();
 
     public Cart() {
     }
@@ -29,12 +29,12 @@ public class Cart {
             return false;
         }
         Cart cart = (Cart) o;
-        return getItems().equals(cart.getItems());
+        return items.equals(cart.items);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getItems());
+        return Objects.hash(items);
     }
 
     @Override

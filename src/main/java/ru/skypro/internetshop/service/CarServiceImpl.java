@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.skypro.internetshop.model.Cart;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.Collection;
 
 @Service
 public class CarServiceImpl implements CartService {
@@ -22,7 +22,7 @@ public class CarServiceImpl implements CartService {
     }
 
     @Override
-    public List<Integer> getItems() {
+    public Collection<Integer> getItems() {
         return cart.getItems();
     }
 }
