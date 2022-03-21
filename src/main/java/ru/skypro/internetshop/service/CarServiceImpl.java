@@ -1,10 +1,13 @@
 package ru.skypro.internetshop.service;
 
 import org.springframework.stereotype.Service;
-import ru.skypro.internetshop.model.Cart;
+import ru.skypro.internetshop.repository.Cart;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CarServiceImpl implements CartService {
@@ -16,13 +19,15 @@ public class CarServiceImpl implements CartService {
     }
 
     @Override
-    public void addItems(int... items) {
-        Arrays.stream(items)
-                .forEach(s -> cart.getItems().add(s));
+    public List<Integer> addItems(int... items) {
+        return Arrays.stream(items)
+                .map(cart::addItem)
+                .boxed()
+                .collect(Collectors.toList());
     }
 
     @Override
     public Collection<Integer> getItems() {
-        return cart.getItems();
+        return Collections.unmodifiableCollection(cart.getItems());
     }
 }

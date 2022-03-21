@@ -1,10 +1,11 @@
 package ru.skypro.internetshop.service;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface CartService {
 
-    void addItems(int... items);
+    List<Integer> addItems(int... items);
 
     Collection<Integer> getItems();
 }
