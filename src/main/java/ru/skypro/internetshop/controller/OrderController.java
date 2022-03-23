@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.skypro.internetshop.service.CartService;
 
 import java.util.Collection;
-import java.util.List;
 
 @RestController
 @RequestMapping("/order")
@@ -20,7 +19,7 @@ public class OrderController {
     }
 
     @GetMapping("/add")
-    public List<Integer> addItems(@RequestParam int... items) {
+    public int[] addItems(@RequestParam int... items) {
         return cartService.addItems(items);
     }
 
